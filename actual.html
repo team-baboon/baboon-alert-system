@@ -59,11 +59,27 @@
         //console.log("icons/"+result+".png");
         document.getElementById('e_icon').appendChild(img);
         console.log(counter);
+
+        /*TODO have e_type handled with m_icons in one array so less repeating code*/
+        var passed_parameters = document.createElement("input");
+        passed_parameters.type = "hidden";
+        passed_parameters.id = "passed_params";
+        passed_parameters.name= "e_type";
+        passed_parameters.value = result;
+        document.getElementById('execute_form').appendChild(passed_parameters);
+
+
         for (var i = 0; i < counter; i++) {
             var img = new Image();
             img.height = "100";
             img.src = "icons/"+medium[i]+"_icon.png";
             document.getElementById('m_icons').appendChild(img);
+
+            var passed_parameters = document.createElement("input");
+            passed_parameters.type = "hidden";
+            passed_parameters.id = "passed_params"+i;
+            passed_parameters.name=medium[i];
+            document.getElementById('execute_form').appendChild(passed_parameters);
         }
 
         return result;
@@ -76,9 +92,7 @@
         <label>BACK TO MAIN MENU</label>
     </div>
     <div class="col-md-4">
-        <form method="GET" role="form">
-
-            <input type="hidden" id="passed_params"/>
+        <form method="GET" role="form" id="execute_form">
 
             <div class="text-center">
                 <button type="submit" class="execute-button" onclick='this.form.action="actual_confirm.html";'></button>
