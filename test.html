@@ -37,23 +37,8 @@
                     result = decodeURIComponent(tmp[1]);
                 }
 
-                if (tmp[0] === 'sirens') {
-                    medium[counter] = 'icons/siren_icon.png';
-                    counter++;
-                }
-
-                if (tmp[0] === 'radio') {
-                    medium[counter] = 'icons/radio_icon.png';
-                    counter++;
-                }
-
-                if (tmp[0] === 'television') {
-                    medium[counter] = 'icons/tv_icon.png';
-                    counter++;
-                }
-
-                if (tmp[0] === 'mobile') {
-                    medium[counter] = 'icons/mobile_icon.png';
+                if (tmp[0] === 'siren' || tmp[0] === 'radio' || tmp[0] === 'tv' || tmp[0] === 'mobile') {
+                    medium[counter] = tmp[0];
                     counter++;
                 }
 
@@ -68,7 +53,7 @@
         for (var i = 0; i < counter; i++) {
             var img = new Image();
             img.height = "100";
-            img.src = medium[i];
+            img.src = "icons/"+medium[i]+"_icon.png";
             document.getElementById('m_icons').appendChild(img);
         }
 
