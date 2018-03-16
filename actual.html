@@ -16,16 +16,30 @@
     </div>
 </div>
 
+<br/>
+
 <div class="col-md-3 text-center container">
     <div class="col-auto" id="e_icon">
 
     </div>
 </div>
 
+<br/>
+
+<div class="col-md-5 text-center container">
+    <div class="col-auto" id="m_icons">
+
+    </div>
+</div>
+
+
 <script type="text/javascript">
+
     function findGetParameter(e_type) {
         var result = null,
             tmp = [];
+            var counter = 0;
+            var medium =[];
         location.search
             .substr(1)
             .split("&")
@@ -34,13 +48,42 @@
                 if (tmp[0] === e_type) {
                     result = decodeURIComponent(tmp[1]);
                 }
+
+                if (tmp[0] === 'sirens') {
+                    medium[counter] = 'icons/siren_icon.png';
+                    counter++;
+                }
+
+                if (tmp[0] === 'radio') {
+                    medium[counter] = 'icons/radio_icon.png';
+                    counter++;
+                }
+
+                if (tmp[0] === 'television') {
+                    medium[counter] = 'icons/tv_icon.png';
+                    counter++;
+                }
+
+                if (tmp[0] === 'mobile') {
+                    medium[counter] = 'icons/mobile_icon.png';
+                    counter++;
+                }
+
             });
         var path = "icons/"+result+".png";
         var img = new Image();
         img.src = path;
         img.height = "250";
-        console.log("icons/"+result+".png");
+        //console.log("icons/"+result+".png");
         document.getElementById('e_icon').appendChild(img);
+        console.log(counter);
+        for (var i = 0; i < counter; i++) {
+
+            var img = new Image();
+            img.height = "100";
+            img.src = medium[i];
+            document.getElementById('m_icons').appendChild(img);
+        }
 
         return result;
     }
