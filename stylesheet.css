@@ -38,10 +38,6 @@
   background-color: rgb(255, 240, 158);
 }
 
-button span {
-  display: none;
-}
-
 .test_button {
   background-image: url(icons/test_button.png);
   background-repeat: no-repeat;
@@ -80,24 +76,4 @@ button span {
   height: 72px;
   width: 230px;
   border: none;
-}
-
-.emergency_icon {
-  height: 100px;
-}
-
-/*.check_box {*/
-  /*background:url('images/check-box.png') no-repeat;*/
-  /*height: 16px;*/
-  /*width: 16px;*/
-  /*display:inline-block;*/
-  /*padding: 0 0 0 0px;*/
-/*}*/
-
-.form-check-input:checked {
-  background:url(icons/checkmark.png) no-repeat;
-  height: 16px;
-  width: 16px;
-  display:inline-block;
-  padding: 0 0 0 0px;
 }
