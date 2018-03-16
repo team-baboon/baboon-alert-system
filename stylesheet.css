@@ -1,11 +1,17 @@
-.splash_page {
+.splash-page {
   background-color: rgb(153,204,255);
 }
 
-.header_box {
+.header-box {
   border: 3px solid black;
   padding: 10px;
   margin: 10px auto;
+  height: 100%;
+}
+
+.alert-sign {
+  width: 200px;
+  margin: 10px;
 }
 
 .form-group {
@@ -26,19 +32,19 @@
   float: right;
 }
 
-.actual_alert {
+.actual-alert {
   background-color: rgb(239,103,103);
 }
 
-.test_alert {
+.test-alert {
   background-color: rgb(147,198,117);
 }
 
-.false_alarm {
+.false-alarm {
   background-color: rgb(255, 240, 158);
 }
 
-.test_button {
+.test-button {
   background-image: url(icons/test_button.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -48,7 +54,7 @@
   border: none;
 }
 
-.actual_button {
+.actual-button {
   background-image: url(icons/actual_button.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -58,7 +64,7 @@
   border: none;
 }
 
-.execute_button {
+.execute-button {
   background-image: url(icons/execute_button.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -68,7 +74,7 @@
   border: none;
 }
 
-.false_button {
+.false-button {
   background-image: url(icons/false_alarm_button.png);
   background-repeat: no-repeat;
   background-position: 50% 50%;

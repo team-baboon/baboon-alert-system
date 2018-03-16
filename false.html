@@ -9,18 +9,14 @@
     <title>State of Hawai'i Emergency Alert System</title>
 
 </head>
-<body class="false_alarm" onload="findGetParameter('e_type')">
+<body class="false-alarm" onload="findGetParameter('e_type')">
 <div class="row">
-    <div class="col-md-6 col-md-offset-3 header_box">
+    <div class="col-md-6 col-md-offset-3 header-box">
         <h1 class="text-center">Send out FALSE ALARM alert</h1>
     </div>
 </div>
 
-<div class="col-md-3 text-center container">
-    <div class="col-auto" id="e_icon">
-
-    </div>
-</div>
+<div class="text-center container" id="e_icon"></div>
 
 <script type="text/javascript">
     function findGetParameter(e_type) {
@@ -46,13 +42,20 @@
     }
 </script>
 
-<form method="GET" role="form">
-    <div class="col-md-3 text-center container">
-        <div class="col-auto">
-            <button type="submit" class="execute_button" onclick='this.form.action="false_confirm.html";'></button>
-        </div>
+<div class="row form-group">
+    <div class="col-md-4">
+        <a href="index.html"><img src="icons/back_arrow.png" style="height:72px"></a>
+        <label>BACK TO MAIN MENU</label>
     </div>
-</form>
+    <div class="col-md-4">
+        <form method="GET" role="form">
+            <div class="text-center">
+                <button type="submit" class="execute-button" onclick='this.form.action="false_confirm.html";'></button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
