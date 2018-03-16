@@ -1,13 +1,20 @@
-#header_box {
-  margin: auto;
-  border: 3px solid black;
-  width: 60%;
-  padding: 10px;
-  text-align: center;
-}
-
 .splash_page {
   background-color: rgb(153,204,255);
+}
+
+.header_box {
+  border: 3px solid black;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.form-group {
+  margin: 20px;
+}
+
+.checkbox-large {
+  width: 100px;
+  height: 100px;
 }
 
 .actual_alert {
@@ -31,7 +38,7 @@ button span {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   /* put the height and width of your image here */
-  height: 71px;
+  height: 72px;
   width: 230px;
   border: none;
 }
@@ -64,10 +71,6 @@ button span {
   height: 72px;
   width: 230px;
   border: none;
-}
-
-.check_box {
-  display:none;
 }
 
 .emergency_icon {
