@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!--Custom Use Stylesheet-->
+    <link rel="stylesheet" href="stylesheet.css">
+
+
+    <title>Hawaii Civil Alert System</title>
+
+</head>
+<body class="splash_page">
+    <div class="container header">
+        <div id="header_box">
+            <h1>State of Hawai'i Emergency Alert System</h1>
+        </div>
+    </div>
+
+    <form method="GET" role="form" target="_blank" id="myform">
+        <!--Dropdown Menu Emergency Select-->
+        <div class="form-group col-md-3 text-center container">
+            <select class="form-control" name="e_type">
+                <option value="">Type of Emergency</option>
+                <option value="amber_alert">Amber Alert</option>
+                <option value="high_surf">High Surf</option>
+                <option value="missile">Missile</option>
+                <option value="tsunami">Tsunami</option>
+            </select>
+
+            <!--Checkboxes Select-->
+            <div class="form-check container text-left col-md-5">
+                <input class="form-check-input" type="checkbox" value="" id="sirens" name="sirens">
+                <label class="form-check-label" for="sirens">
+                    Sirens
+                    <img src="icons/siren_icon.png" alt="Sirens" style="width:50px">
+                </label>
+            </div>
+
+            <br/>
+
+            <div class="form-check container text-left col-md-5">
+                <input class="form-check-input" type="checkbox" value="" id="radio" name="radio">
+                <label class="form-check-label" for="radio">
+                    Radio
+                    <img src="icons/radio_icon.png" alt="Radio" style="width:50px">
+                </label>
+            </div>
+
+            <br/>
+
+            <div class="form-check container text-left col-md-5">
+                <input class="form-check-input" type="checkbox" value="" id="television" name="television">
+                <label class="form-check-label" for="television">
+                    Television
+                    <img src="icons/tv_icon.png" alt="Television" style="width:50px">
+                </label>
+            </div>
+
+            <br/>
+
+            <div class="form-check container text-left col-md-5">
+                <input class="form-check-input" type="checkbox" value="" id="mobile" name="mobile">
+                <label class="form-check-label" for="mobile">
+                    Mobile
+                    <img src="icons/mobile_icon.png" alt="Mobile" style="height:50px">
+                </label>
+            </div>
+
+            <div id="checkboxGroup"></div>
+
+
+<br/>
+
+            <div class="row align-items-center">
+                <div class="col-mx-3">
+                    <button type="submit" class="test_button" onclick='this.form.action="test.html";'></button>
+                </div>
+
+                <div class="col-md-3">
+                    <button type="submit" class="actual_button" onclick='this.form.action="actual.html";'></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+
+        </div>
+    </form>
+
+
+    </div>
+<!--<div class="checkbox">-->
+<!--<label>-->
+<!--<input type="checkbox"> Text next to Checkbox-->
+<!--</label>-->
+<!--</div>-->
+<!--maybe for checkboxes and stuff-->
+<!--<ul class="list-inline">-->
+<!--<li></li>-->
+<!--</ul>-->
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</html>
