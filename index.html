@@ -27,8 +27,14 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="text-center">
-                    <select id="e_type_dd" name="e_type_dd"></select>
-                    <input type="hidden" name="e_type" id="e_type">
+                    <h4>Select the type of emergency:</h4>
+                    <select id="e_type_dd" name="e_type_dd">
+                        <option value="amber_alert" data-imagesrc="icons/amber_alert.png" data-description="&nbsp;">Amber Alert</option>
+                        <option value="high_surf" data-imagesrc="icons/high_surf.png" data-description="&nbsp;">High Surf</option>
+                        <option value="missile" data-imagesrc="icons/missile.png" data-description="&nbsp;">Missile</option>
+                        <option value="tsunami" data-imagesrc="icons/tsunami.png" data-description="&nbsp;">Tsunami</option>
+                    </select>
+                    <input type="hidden" id="e_type" name="e_type">
                 </div>
             </div>
             <div class="col-md-3"></div>
@@ -136,40 +142,10 @@
 </body>
 
 <script>
-    //Dropdown plugin data
-    var ddData = [
-        {
-            text: "Amber Alert",
-            value: "amber_alert",
-            description: "&nbsp;",
-            imageSrc: "icons/amber_alert.png"
-        },
-        {
-            text: "High Surf",
-            value: "high_surf",
-            description: "&nbsp;",
-            imageSrc: "icons/high_surf.png"
-        },
-        {
-            text: "Missile",
-            value: "missile",
-            description: "&nbsp;",
-            imageSrc: "icons/missile.png"
-        },
-        {
-            text: "Tsunami",
-            value: "tsunami",
-            description: "&nbsp;",
-            imageSrc: "icons/tsunami.png"
-        }
-    ];
-
     $(document).ready(function() {
         $('#e_type_dd').ddslick({
-            data: ddData,
             width: "100%",
             imagePosition: "right",
-            selectText: "Select the type of emergency",
             onSelected: function (data) {
                 $('#e_type').val(data.selectedData.value);
             }
