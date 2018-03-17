@@ -26,9 +26,9 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="form-group text-center">
-                    <h4>Select the type of emergency:</h4>
-                    <select class="form-control" id="e_type" name="e_type"></select>
+                <div class="text-center">
+                    <select id="e_type_dd" name="e_type_dd"></select>
+                    <input type="hidden" name="e_type" id="e_type">
                 </div>
             </div>
             <div class="col-md-3"></div>
@@ -165,13 +165,13 @@
     ];
 
     $(document).ready(function() {
-        $('#e_type').ddslick({
+        $('#e_type_dd').ddslick({
             data: ddData,
-            width: 300,
+            width: "100%",
             imagePosition: "right",
             selectText: "Select the type of emergency",
             onSelected: function (data) {
-                console.log(data);
+                $('#e_type').val(data.selectedData.value);
             }
         });
     });
