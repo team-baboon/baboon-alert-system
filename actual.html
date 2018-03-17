@@ -24,11 +24,21 @@
 
 <br/>
 
-<div class="text-center container" id="e_icon"></div>
+<div class="text-center text-uppercase container" id="e_icon"></div>
 
 <br/>
 
-<div class="text-center container" id="m_icons"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="row" id="m_icons"></div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<br/>
 
 <script type="text/javascript">
 
@@ -46,7 +56,7 @@
                     result = decodeURIComponent(tmp[1]);
                 }
 
-                if (tmp[0] === 'sirens' || tmp[0] === 'radio' || tmp[0] === 'tv' || tmp[0] === 'mobile') {
+                if (tmp[0] === 'sirens' || tmp[0] === 'radio' || tmp[0] === 'television' || tmp[0] === 'mobile') {
                     medium[counter] = tmp[0];
                     counter++;
                 }
@@ -55,9 +65,17 @@
         var path = "icons/"+result+".png";
         var img = new Image();
         img.src = path;
-        img.height = "250";
+        img.height = 250;
         //console.log("icons/"+result+".png");
         document.getElementById('e_icon').appendChild(img);
+        var h2 = document.createElement("h2");
+        if (result.includes('_')) {
+            h2.innerHTML = result.replace('_', ' ');
+        }
+        else {
+            h2.innerHTML = result;
+        }
+        document.getElementById('e_icon').appendChild(h2);
         console.log(counter);
 
         /*TODO have e_type handled with m_icons in one array so less repeating code*/
@@ -70,10 +88,18 @@
 
 
         for (var i = 0; i < counter; i++) {
+            var col = document.createElement("div");
+            col.classList.add("col-md-"+12/counter);
+            col.classList.add('text-center');
+            col.classList.add('text-capitalize');
             var img = new Image();
-            img.height = "100";
+            img.height = 100;
             img.src = "icons/"+medium[i]+"_icon.png";
-            document.getElementById('m_icons').appendChild(img);
+            col.appendChild(img);
+            var h4 = document.createElement("h4");
+            h4.innerHTML = medium[i];
+            col.appendChild(h4);
+            document.getElementById('m_icons').appendChild(col);
 
             var passed_parameters = document.createElement("input");
             passed_parameters.type = "hidden";
