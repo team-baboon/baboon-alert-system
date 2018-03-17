@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="checkbox">
-                        <input class="checkbox-large" type="checkbox" value="" id="sirens" name="siren">
+                        <input class="checkbox-large" type="checkbox" value="" id="sirens" name="sirens" required>
                     </div>
                 </div>
                 <div class="col-md-10 checkbox-box">
@@ -50,7 +50,7 @@
                             <h2>Sirens</h2>
                         </div>
                         <div class="col-md-6">
-                            <img class="float-right" src="icons/siren_icon.png" alt="Sirens" style="height:80px">
+                            <img class="float-right" src="icons/sirens_icon.png" alt="Sirens" style="height:80px">
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="checkbox">
-                        <input class="checkbox-large" type="checkbox" value="" id="radio" name="radio">
+                        <input class="checkbox-large" type="checkbox" value="" id="radio" name="radio" required>
                     </div>
                 </div>
                 <div class="col-md-10 checkbox-box">
@@ -81,7 +81,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="checkbox">
-                        <input class="checkbox-large" type="checkbox" value="" id="television" name="tv">
+                        <input class="checkbox-large" type="checkbox" value="" id="television" name="tv" required>
                     </div>
                 </div>
                 <div class="col-md-10 checkbox-box">
@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="checkbox">
-                        <input class="checkbox-large" type="checkbox" value="" id="mobile" name="mobile">
+                        <input class="checkbox-large" type="checkbox" value="" id="mobile" name="mobile" required>
                     </div>
                 </div>
                 <div class="col-md-10 checkbox-box">
@@ -144,5 +144,20 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+<script>
+  $(function(){
+    let requiredCheckboxes = $(':checkbox[required]');
+
+    requiredCheckboxes.change(function(){
+      if(requiredCheckboxes.is(':checked')) {
+        requiredCheckboxes.removeAttr('required');
+      }
+      else {
+        requiredCheckboxes.attr('required', 'required');
+      }
+    });
+  });
+</script>
 
 </html>
