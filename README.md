@@ -1,4 +1,4 @@
-# baboon-alert-system
+# Baboon Alert System
 ## To Run
 * Download the zipped repository
 * Extract to a local folder
