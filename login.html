@@ -1,21 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
   <title>Login</title>
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
   <link href="login.css" rel="stylesheet">
 </head>
-
 <body class="text-center">
 
 <form class="form-login">
@@ -35,11 +27,11 @@
   function verifyCredentials() {
     const username = document.getElementById("inputUsername").value;
     const password = document.getElementById("inputPassword").value;
-    if ( username == "admin" && password == "hunter2"){
-      alert ("Login successful");
+    if (username === "admin" && password === "hunter2") {
+      alert("Login successful");
       window.location = 'index.html';
     }
-    else{
+    else {
       alert("Invalid username or password");
     }
     return false;
