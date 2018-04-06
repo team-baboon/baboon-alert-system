@@ -10,12 +10,14 @@
 </head>
 <body class="text-center">
 
-<form class="form-login" method="GET">
+<form class="form-login" method="POST">
   <label for="inputUsername" class="sr-only">Username</label>
   <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus name="username">
+
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" placeholder="Password" required  name="password">
-  <button class="btn btn-lg btn-outline-primary btn-block" type="submit" onclick="this.form.action='index.html'">Log in
+
+  <button class="btn btn-lg btn-outline-primary btn-block" type="submit" onclick="return verifyCredentials()">Log in
   </button>
   <p class="mt-5 mb-3 text-muted">Contact an administrator to create an account.</p>
   <p class="text-muted">ducey@hawaii.edu</p>
@@ -29,12 +31,14 @@
   function verifyCredentials() {
     const username = document.getElementById("inputUsername").value;
     const password = document.getElementById("inputPassword").value;
-    if (username === "admin" && password === "hunter2") {
-      alert("Login successful");
-      window.location = 'menu.html';
+    if (username === "") {
+      alert("Missing Username");
     }
+    else if(password === "") {
+        alert("Missing Password");
+      }
     else {
-      alert("Invalid username or password");
+        window.location = 'process_login.php';
     }
     return false;
   }
