@@ -1,3 +1,7 @@
+<?php
+$msg = "Ballistic missile threat inbound to Hawaii. Seek immediate shelter. This is a test message.";
+mail("ducey@hawaii.edu", "Ballistic Missile Threat Inbound to Hawaii", $msg);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
