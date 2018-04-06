@@ -12,10 +12,10 @@ $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 
 if ($resultCheck > 0) {
-    header('Location: https://www.bamboocalc.com/baboon-alert-system/index.html?error_login');
+    header('Location: https://www.bamboocalc.com/baboon-alert-system/menu.html');
 }
 else {
-    //redirect back to login page
+    header('Location: https://www.bamboocalc.com/baboon-alert-system/index.html?error_login');
 }
 
 
