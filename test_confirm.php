@@ -79,7 +79,7 @@ mail("jeremy21@hawaii.edu", $header, $msg);
 
 <div class="row form-group">
   <div class="col-md-4">
-    <a href="index.html"><img src="icons/back_arrow.png" style="height:72px"></a>
+    <a href="menu.html"><img src="icons/back_arrow.png" style="height:72px"></a>
     <label>BACK TO MAIN MENU</label>
   </div>
 </div>
