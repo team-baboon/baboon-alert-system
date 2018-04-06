@@ -1,3 +1,29 @@
+<?php
+$header = null;
+$msg = null;
+$e_type = $_GET["e_type"];
+
+if ($e_type === 'amber_alert') {
+    $msg = "False alarm. There is no amber alert.";
+    $header = "False alarm. There is no amber alert.";
+}
+elseif ($e_type === 'high_surf') {
+    $msg = "False alarm. There is no high surf advisory.";
+    $header = "False alarm. There is no high surf advisory.";
+}
+elseif ($e_type === 'missile') {
+    $msg = "False alarm. There is no missile threat.";
+    $header = "False alarm. There is no missile threat.";
+}
+elseif ($e_type === 'tsunami') {
+    $msg = "False alarm, there is no tsunami inbound to Hawai'i.";
+    $header = "False alarm, there is no tsunami inbound to Hawai'i.";
+}
+
+$msg .= " The previous warning was a false alarm.";
+mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

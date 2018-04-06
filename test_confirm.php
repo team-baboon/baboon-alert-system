@@ -21,7 +21,7 @@ elseif ($e_type === 'tsunami') {
 }
 
 $msg .= " This is a test message.";
-mail("jeremy21@hawaii.edu", $header, $msg);
+mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
 ?>
 <!DOCTYPE html>
 <html lang="en">
