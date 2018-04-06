@@ -1,6 +1,26 @@
 <?php
-$msg = "Ballistic missile threat inbound to Hawaii. Seek immediate shelter. This is a test message.";
-mail("ducey@hawaii.edu", "Ballistic Missile Threat Inbound to Hawaii", $msg);
+$header = null;
+$msg = null;
+$e_type = $_GET["e_type"];
+        if ($e_type == 'amber_alert') {
+            $msg = "There has been an amber alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
+            $header = "There has been an amber alert issued for the state of Hawai'i.";
+        }
+        else if ($e_type == 'high_surf') {
+            $msg = "There is a high surf advisory for the state of Hawai'i. Please surf responsibly.";
+            $header = "There is a high surf advisory for the state of Hawai'i";
+        }
+        else if ($e_type == 'missile') {
+            $msg = "Ballistic Missile Threat Inbound to Hawaii. Seek shelter immediately.";
+            $header = "Ballistic Missile Threat Inbound to Hawaii."
+        }
+        else if ($e_type == 'tsunami') {
+            $msg = "There is likely a tsunami on route to the state of Hawai'i. Move inland towards higher ground.";
+            $header = "Tsunami Warning declared for the state of Hawai'i."
+        }
+
+$msg = $msg." This is a test message.";
+mail("jeremy21@hawaii.edu", $header, $msg);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +62,32 @@ mail("ducey@hawaii.edu", "Ballistic Missile Threat Inbound to Hawaii", $msg);
     function findGetParameter(e_type) {
         var result = null,
             tmp = [];
+        location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (item) {
+                tmp = item.split("=");
+                if (tmp[0] === e_type) {
+                    result = decodeURIComponent(tmp[1]);
+                }
+            });
+
+        return result;
+    }
+</script>
+
+<div class="row form-group">
+  <div class="col-md-4">
+    <a href="index.html"><img src="icons/back_arrow.png" style="height:72px"></a>
+    <label>BACK TO MAIN MENU</label>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    function findGetParameter(e_type) {
+        var result = null,
+            tmp = [];
         var counter = 0;
         var medium =[];
         location.search
@@ -63,6 +109,7 @@ mail("ducey@hawaii.edu", "Ballistic Missile Threat Inbound to Hawaii", $msg);
         var img = new Image();
         img.src = path;
         img.height = 250;
+        //console.log("icons/"+result+".png");
         document.getElementById('e_icon').appendChild(img);
         var h2 = document.createElement("h2");
         if (result.includes('_')) {
@@ -73,6 +120,16 @@ mail("ducey@hawaii.edu", "Ballistic Missile Threat Inbound to Hawaii", $msg);
         }
         document.getElementById('e_icon').appendChild(h2);
         console.log(counter);
+
+        /*TODO have e_type handled with m_icons in one array so less repeating code*/
+        var passed_parameters = document.createElement("input");
+        passed_parameters.type = "hidden";
+        passed_parameters.id = "passed_params";
+        passed_parameters.name= "e_type";
+        passed_parameters.value = result;
+        document.getElementById('execute_form').appendChild(passed_parameters);
+
+
         for (var i = 0; i < counter; i++) {
             var col = document.createElement("div");
             col.classList.add("col-md-"+12/counter);
@@ -86,18 +143,18 @@ mail("ducey@hawaii.edu", "Ballistic Missile Threat Inbound to Hawaii", $msg);
             h4.innerHTML = medium[i];
             col.appendChild(h4);
             document.getElementById('m_icons').appendChild(col);
+
+            var passed_parameters = document.createElement("input");
+            passed_parameters.type = "hidden";
+            passed_parameters.id = "passed_params"+i;
+            passed_parameters.name=medium[i];
+            document.getElementById('execute_form').appendChild(passed_parameters);
         }
 
         return result;
     }
 </script>
 
-<div class="row form-group">
-  <div class="col-md-4">
-    <a href="index.html"><img src="icons/back_arrow.png" style="height:72px"></a>
-    <label>BACK TO MAIN MENU</label>
-  </div>
-</div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
