@@ -4,25 +4,26 @@ $msg = null;
 $e_type = $_GET["e_type"];
 
 if ($e_type === 'amber_alert') {
-    $msg = "There has been an amber alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
-    $header = "There has been an amber alert issued for the state of Hawai'i.";
+    $msg = "False alarm. There is no amber alert.";
+    $header = "False alarm. There is no amber alert.";
 }
 elseif ($e_type === 'high_surf') {
-    $msg = "There is a high surf advisory for the state of Hawai'i. Please surf responsibly.";
-    $header = "There is a high surf advisory for the state of Hawai'i";
+    $msg = "False alarm. There is no high surf advisory.";
+    $header = "False alarm. There is no high surf advisory.";
 }
 elseif ($e_type === 'missile') {
-    $msg = "Ballistic Missile Threat Inbound to Hawaii. Seek shelter immediately.";
-    $header = "Ballistic Missile Threat Inbound to Hawaii.";
+    $msg = "False alarm. There is no missile threat.";
+    $header = "False alarm. There is no missile threat.";
 }
 elseif ($e_type === 'tsunami') {
-    $msg = "There is likely a tsunami on route to the state of Hawai'i. Move inland towards higher ground.";
-    $header = "Tsunami Warning declared for the state of Hawai'i.";
+    $msg = "False alarm, there is no tsunami inbound to Hawai'i.";
+    $header = "False alarm, there is no tsunami inbound to Hawai'i.";
 }
 
-$msg .= " This is not a test.";
+$msg .= " The previous warning was a false alarm.";
 mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
