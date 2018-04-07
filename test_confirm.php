@@ -5,21 +5,39 @@ if (isset($_GET['email'])) {
     $e_type = $_GET["e_type"];
 
     if ($e_type === 'amber_alert') {
-        $msg = "There has been an amber alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
-        $header = "There has been an amber alert issued for the state of Hawai'i.";
+        $msg = "There has been an AMBER Alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
+        $header = "AMBER Alert Issued for the State of Hawai'i.";
     } elseif ($e_type === 'high_surf') {
         $msg = "There is a high surf advisory for the state of Hawai'i. Please surf responsibly.";
-        $header = "There is a high surf advisory for the state of Hawai'i";
+        $header = "High Surf Advisory for the State of Hawai'i";
     } elseif ($e_type === 'missile') {
-        $msg = "Ballistic Missile Threat Inbound to Hawaii. Seek shelter immediately.";
-        $header = "Ballistic Missile Threat Inbound to Hawaii.";
+        $msg = "Ballistic missile threat inbound to Hawai'i. Seek shelter immediately.";
+        $header = "Ballistic Missile Threat Inbound to Hawai'i.";
     } elseif ($e_type === 'tsunami') {
         $msg = "There is likely a tsunami on route to the state of Hawai'i. Move inland towards higher ground.";
-        $header = "Tsunami Warning declared for the state of Hawai'i.";
+        $header = "Tsunami Warning Declared for the State of Hawai'i.";
     }
 
     $msg .= " This is a test message.";
     mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
+}
+
+if (isset($_GET['mobile'])) {
+    $header = 'TEST';
+    $msg = null;
+    $e_type = $_GET["e_type"];
+
+    if ($e_type === 'amber_alert') {
+        $msg = "AMBER Alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
+    } elseif ($e_type === 'high_surf') {
+        $msg = "High surf advisory for the state of Hawai'i. Please surf responsibly.";
+    } elseif ($e_type === 'missile') {
+        $msg = "Ballistic missile threat inbound to Hawai'i. Seek shelter immediately.";
+    } elseif ($e_type === 'tsunami') {
+        $msg = "Tsunami warning declared for the state of Hawai'i. Move inland towards higher ground.";
+    }
+
+    mail("8083139154@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
 }
 ?>
 
@@ -105,14 +123,6 @@ if (isset($_GET['email'])) {
         document.getElementById('e_icon').appendChild(h2);
         console.log(counter);
 
-        /*TODO have e_type handled with m_icons in one array so less repeating code*/
-        var passed_parameters = document.createElement("input");
-        passed_parameters.type = "hidden";
-        passed_parameters.id = "passed_params";
-        passed_parameters.name= "e_type";
-        passed_parameters.value = result;
-        document.getElementById('execute_form').appendChild(passed_parameters);
-
         for (var i = 0; i < counter; i++) {
             var col = document.createElement("div");
             col.classList.add("col-md-"+12/counter);
@@ -126,12 +136,6 @@ if (isset($_GET['email'])) {
             h4.innerHTML = medium[i];
             col.appendChild(h4);
             document.getElementById('m_icons').appendChild(col);
-
-            passed_parameters = document.createElement("input");
-            passed_parameters.type = "hidden";
-            passed_parameters.id = "passed_params"+i;
-            passed_parameters.name=medium[i];
-            document.getElementById('execute_form').appendChild(passed_parameters);
         }
         return result;
     }

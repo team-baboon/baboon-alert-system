@@ -5,21 +5,39 @@ if (isset($_GET['email'])) {
     $e_type = $_GET["e_type"];
 
     if ($e_type === 'amber_alert') {
-        $msg = "There has been an amber alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
-        $header = "There has been an amber alert issued for the state of Hawai'i.";
+        $msg = "There has been an AMBER Alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
+        $header = "AMBER Alert Issued for the State of Hawai'i.";
     } elseif ($e_type === 'high_surf') {
         $msg = "There is a high surf advisory for the state of Hawai'i. Please surf responsibly.";
-        $header = "There is a high surf advisory for the state of Hawai'i";
+        $header = "High Surf Advisory for the State of Hawai'i";
     } elseif ($e_type === 'missile') {
-        $msg = "Ballistic Missile Threat Inbound to Hawaii. Seek shelter immediately.";
-        $header = "Ballistic Missile Threat Inbound to Hawaii.";
+        $msg = "Ballistic missile threat inbound to Hawai'i. Seek shelter immediately.";
+        $header = "Ballistic Missile Threat Inbound to Hawai'i.";
     } elseif ($e_type === 'tsunami') {
         $msg = "There is likely a tsunami on route to the state of Hawai'i. Move inland towards higher ground.";
-        $header = "Tsunami Warning declared for the state of Hawai'i.";
+        $header = "Tsunami Warning Declared for the State of Hawai'i.";
     }
 
     $msg .= " This is not a test.";
     mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
+}
+
+if (isset($_GET['mobile'])) {
+    $header = 'ALERT';
+    $msg = null;
+    $e_type = $_GET["e_type"];
+
+    if ($e_type === 'amber_alert') {
+        $msg = "AMBER Alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
+    } elseif ($e_type === 'high_surf') {
+        $msg = "High surf advisory for the state of Hawai'i. Please surf responsibly.";
+    } elseif ($e_type === 'missile') {
+        $msg = "Ballistic missile threat inbound to Hawai'i. Seek shelter immediately.";
+    } elseif ($e_type === 'tsunami') {
+        $msg = "Tsunami warning declared for the state of Hawai'i. Move inland towards higher ground.";
+    }
+
+    mail("8083139154@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
 }
 ?>
 
