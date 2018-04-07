@@ -3,6 +3,7 @@ if (isset($_GET['email'])) {
     $header = null;
     $msg = null;
     $e_type = $_GET["e_type"];
+
     if ($e_type === 'amber_alert') {
         $msg = "There has been an amber alert issued for the state of Hawai'i. Keep an eye out for kidnapped kids.";
         $header = "There has been an amber alert issued for the state of Hawai'i.";
@@ -21,8 +22,10 @@ if (isset($_GET['email'])) {
     mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,6 +36,7 @@ if (isset($_GET['email'])) {
 </head>
 
 <body class="test-alert" onload="findGetParameter('e_type')">
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3 header-box">
     <h1 class="text-center" style="font-weight: bold">TEST EXECUTED</h1>
@@ -56,24 +60,6 @@ if (isset($_GET['email'])) {
 </div>
 
 <br/>
-
-<script type="text/javascript">
-    function findGetParameter(e_type) {
-        var result = null,
-            tmp = [];
-        location.search
-            .substr(1)
-            .split("&")
-            .forEach(function (item) {
-                tmp = item.split("=");
-                if (tmp[0] === e_type) {
-                    result = decodeURIComponent(tmp[1]);
-                }
-            });
-
-        return result;
-    }
-</script>
 
 <div class="row form-group">
   <div class="col-md-4">
@@ -108,7 +94,6 @@ if (isset($_GET['email'])) {
         var img = new Image();
         img.src = path;
         img.height = 250;
-        //console.log("icons/"+result+".png");
         document.getElementById('e_icon').appendChild(img);
         var h2 = document.createElement("h2");
         if (result.includes('_')) {
@@ -128,7 +113,6 @@ if (isset($_GET['email'])) {
         passed_parameters.value = result;
         document.getElementById('execute_form').appendChild(passed_parameters);
 
-
         for (var i = 0; i < counter; i++) {
             var col = document.createElement("div");
             col.classList.add("col-md-"+12/counter);
@@ -143,19 +127,18 @@ if (isset($_GET['email'])) {
             col.appendChild(h4);
             document.getElementById('m_icons').appendChild(col);
 
-            var passed_parameters = document.createElement("input");
+            passed_parameters = document.createElement("input");
             passed_parameters.type = "hidden";
             passed_parameters.id = "passed_params"+i;
             passed_parameters.name=medium[i];
             document.getElementById('execute_form').appendChild(passed_parameters);
         }
-
         return result;
     }
 </script>
 
-
 </body>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -165,4 +148,5 @@ if (isset($_GET['email'])) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 </html>

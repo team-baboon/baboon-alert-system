@@ -25,6 +25,7 @@ if (isset($_GET['email'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,9 +33,10 @@ if (isset($_GET['email'])) {
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="stylesheet.css">
   <title>State of Hawai'i Emergency Alert System</title>
-
 </head>
+
 <body class="actual-alert" onload="findGetParameter('e_type')">
+
 <div class="row">
   <div class="col-md-3">
     <img class="alert-sign" src="icons/alert_sign.png">
@@ -65,8 +67,22 @@ if (isset($_GET['email'])) {
 
 <br/>
 
-<script type="text/javascript">
+<div class="row form-group">
+  <div class="col-md-4">
+    <a href="menu.html"><img src="icons/back_arrow.png" style="height:72px"></a>
+    <label>BACK TO MAIN MENU</label>
+  </div>
+  <div class="col-md-4">
+    <form method="GET" role="form" id="execute_form">
+      <div class="text-center">
+        <button type="submit" class="false-button" onclick='this.form.action="false.html";'></button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>
 
+<script type="text/javascript">
     function findGetParameter(e_type) {
         var result = null,
             tmp = [];
@@ -91,7 +107,6 @@ if (isset($_GET['email'])) {
         var img = new Image();
         img.src = path;
         img.height = 250;
-        //console.log("icons/"+result+".png");
         document.getElementById('e_icon').appendChild(img);
         var h2 = document.createElement("h2");
         if (result.includes('_')) {
@@ -111,7 +126,6 @@ if (isset($_GET['email'])) {
         passed_parameters.value = result;
         document.getElementById('execute_form').appendChild(passed_parameters);
 
-
         for (var i = 0; i < counter; i++) {
             var col = document.createElement("div");
             col.classList.add("col-md-"+12/counter);
@@ -126,33 +140,18 @@ if (isset($_GET['email'])) {
             col.appendChild(h4);
             document.getElementById('m_icons').appendChild(col);
 
-            var passed_parameters = document.createElement("input");
+            passed_parameters = document.createElement("input");
             passed_parameters.type = "hidden";
             passed_parameters.id = "passed_params"+i;
             passed_parameters.name=medium[i];
             document.getElementById('execute_form').appendChild(passed_parameters);
         }
-
         return result;
     }
 </script>
 
-<div class="row form-group">
-  <div class="col-md-4">
-    <a href="menu.html"><img src="icons/back_arrow.png" style="height:72px"></a>
-    <label>BACK TO MAIN MENU</label>
-  </div>
-  <div class="col-md-4">
-    <form method="GET" role="form" id="execute_form">
-      <div class="text-center">
-          <button type="submit" class="false-button" onclick='this.form.action="false.html";'></button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-4"></div>
-</div>
-
 </body>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -162,4 +161,5 @@ if (isset($_GET['email'])) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 </html>

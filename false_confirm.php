@@ -4,7 +4,6 @@ if (isset($_GET['email'])) {
     $msg = null;
     $e_type = $_GET["e_type"];
 
-
     if ($e_type === 'amber_alert') {
         $msg = "False alarm. There is no amber alert.";
         $header = "False alarm. There is no amber alert.";
@@ -24,9 +23,9 @@ if (isset($_GET['email'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,8 +61,14 @@ if (isset($_GET['email'])) {
 
 <br/>
 
-<script type="text/javascript">
+<div class="row form-group">
+  <div class="col-md-4">
+    <a href="menu.html"><img src="icons/back_arrow.png" style="height:72px"></a>
+    <label>BACK TO MAIN MENU</label>
+  </div>
+</div>
 
+<script type="text/javascript">
     function findGetParameter(e_type) {
         var result = null,
             tmp = [];
@@ -98,6 +103,7 @@ if (isset($_GET['email'])) {
         }
         document.getElementById('e_icon').appendChild(h2);
         console.log(counter);
+
         for (var i = 0; i < counter; i++) {
             var col = document.createElement("div");
             col.classList.add("col-md-"+12/counter);
@@ -112,19 +118,12 @@ if (isset($_GET['email'])) {
             col.appendChild(h4);
             document.getElementById('m_icons').appendChild(col);
         }
-
         return result;
     }
 </script>
 
-<div class="row form-group">
-  <div class="col-md-4">
-    <a href="menu.html"><img src="icons/back_arrow.png" style="height:72px"></a>
-    <label>BACK TO MAIN MENU</label>
-  </div>
-</div>
-
 </body>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -134,4 +133,5 @@ if (isset($_GET['email'])) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 </html>
