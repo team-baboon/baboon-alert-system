@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['email']) == true) {
+if (isset($_GET['email'])) {
     $header = null;
     $msg = null;
     $e_type = $_GET["e_type"];
@@ -18,7 +18,7 @@ if (isset($_GET['email']) == true) {
     }
 
     $msg .= " This is a test message.";
-    mail("jeremy21@hawaii.edu", $header, $msg);
+    mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
 }
 ?>
 <!DOCTYPE html>
@@ -98,7 +98,7 @@ if (isset($_GET['email']) == true) {
                     result = decodeURIComponent(tmp[1]);
                 }
 
-                if (tmp[0] === 'sirens' || tmp[0] === 'radio' || tmp[0] === 'television' || tmp[0] === 'mobile') {
+                if (tmp[0] === 'radio' || tmp[0] === 'television' || tmp[0] === 'mobile' || tmp[0] === 'email') {
                     medium[counter] = tmp[0];
                     counter++;
                 }
