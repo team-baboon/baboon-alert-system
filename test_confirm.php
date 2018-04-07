@@ -37,7 +37,7 @@ if (isset($_GET['mobile'])) {
         $msg = "Tsunami warning declared for the state of Hawai'i. Move inland towards higher ground.";
     }
 
-    mail("8083139154@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
+    mail("8083139154@tmomail.net, 8089276781@vtext.com, 7578135980@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
 }
 ?>
 

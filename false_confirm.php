@@ -37,7 +37,7 @@ if (isset($_GET['mobile'])) {
         $msg = "There is no tsunami inbound to Hawai'i.";
     }
 
-    mail("8083139154@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
+    mail("8083139154@tmomail.net, 8089276781@vtext.com, 7578135980@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
 }
 ?>
 
