@@ -6,16 +6,17 @@ $dbName = "db686893124";
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName) or die ("Error connecting to database.");
 
-$sql = "'SELECT username, password FROM users WHERE username=".$_POST["username"]." AND password=".$POST_["password"].";'";
+$sql = "'INSERT INTO users (username, password) VALUES ".$_POST["username"].", ".$POST_["password"].";'";
 
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
 
+//if successful goto index
 if ($resultCheck > 0) {
-    header('Location: https://www.bamboocalc.com/baboon-alert-system/menu.html');
+    header('Location: https://www.bamboocalc.com/baboon-alert-system/index.html');
 }
 else {
-    header('Location: https://www.bamboocalc.com/baboon-alert-system/index.html?error_login');
+    header('Location: https://www.bamboocalc.com/baboon-alert-system/newuser.html?error_create');
 }
 
 
