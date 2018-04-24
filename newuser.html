@@ -15,24 +15,27 @@
 <form class="form-login">
   <label for="inputUsername" class="sr-only">Username</label>
   <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword2" class="form-control" placeholder="Confirm Password" required>
+
   <button class="btn btn-lg btn-outline-primary btn-block" type="submit" onclick="return verifyCredentials()">Log in
   </button>
-  <p class="mt-5 mb-3 text-muted"><a href="newuser.html">Create New User</a></p>
+  <p class="mt-5 mb-3 text-muted">Contact an administrator to create an account.</p>
   <p class="text-muted">ducey@hawaii.edu</p>
 </form>
-
-
-
 
 <script>
   function verifyCredentials() {
     const username = document.getElementById("inputUsername").value;
     const password = document.getElementById("inputPassword").value;
-    if (username === "admin" && password === "hunter2") {
-      alert("Login successful");
-      window.location = 'menu.html';
+    const password2 = document.getElementById("inputPassword2").value;
+    if (username === "admin" && password === "hunter2" && password2 == password) {
+      alert("New User Created");
+      window.location = 'index.html';
     }
     else {
       alert("Invalid username or password");
