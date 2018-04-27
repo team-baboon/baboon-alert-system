@@ -7,7 +7,7 @@ if (isset($_POST["login"])) {
 
     $conn = mysqli_connect($hostname, $dbUsername, $dbPassword, $database) or die ("Error connecting to database.");
 
-    $sql = "SELECT username, password FROM users WHERE username='" . clean($_POST["username"]) . "' AND password='" . clean($_POST["password"]) . "'";
+    $sql = "SELECT * FROM users WHERE username='" . clean($_POST["username"]) . "' AND password='" . clean($_POST["password"]) . "'";
 
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
@@ -48,8 +48,7 @@ function clean($data) {
   <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" name="password" class="form-control" placeholder="Password" required>
-  <button name="login" class="btn btn-lg btn-outline-primary btn-block" type="submit">Log in
-  </button>
+  <button name="login" class="btn btn-lg btn-outline-primary btn-block" type="submit">Log in</button>
   <p class="mt-5 mb-3 text-muted"><a href="newuser.php">Create New User</a></p>
   <p class="text-muted">ducey@hawaii.edu</p>
 </form>
