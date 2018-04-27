@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (isset($_POST["login"])) {
     $hostname = "db686893124.db.1and1.com";
     $database = "db686893124";
@@ -12,7 +14,10 @@ if (isset($_POST["login"])) {
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 
+    mysqli_close($conn);
+
     if ($resultCheck === 1) {
+        $_SESSION["username"] = clean($_POST["username"]);
         header('location: menu.html');
     } else {
         $loginError = true;
@@ -22,9 +27,6 @@ if (isset($_POST["login"])) {
 function clean($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
-
-mysqli_close($conn);
-
 ?>
 
 <!DOCTYPE html>

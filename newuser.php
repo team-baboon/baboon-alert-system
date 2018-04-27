@@ -11,9 +11,11 @@ if (isset($_POST["register"])) {
 
         $conn = mysqli_connect($hostname, $dbUsername, $dbPassword, $database) or die ("Error connecting to database.");
 
-        $sql = "INSERT INTO users (username, password) VALUES ('" . clean($_POST["username"]) . "', '" . clean($_POST["password"]) . "');";
+        $sql = "INSERT INTO users (username, password) VALUES ('" . clean($_POST["username"]) . "', '" . clean($_POST["password"]) . "')";
 
         $result = mysqli_query($conn, $sql);
+
+        mysqli_close($conn);
 
         if ($result) {
             echo "<script type='text/javascript'>alert('New user created.');</script>";

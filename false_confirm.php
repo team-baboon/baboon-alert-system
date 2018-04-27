@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+$radio = 0;
+$tv = 0;
+$mobile = 0;
+$email = 0;
+
 if (isset($_GET['email'])) {
     $header = null;
     $msg = null;
@@ -20,6 +27,7 @@ if (isset($_GET['email'])) {
 
     $msg .= " The previous warning was a false alarm.";
     mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
+    $email = 1;
 }
 
 if (isset($_GET['mobile'])) {
@@ -38,7 +46,21 @@ if (isset($_GET['mobile'])) {
     }
 
     mail("8083139154@tmomail.net, 8089276781@vtext.com, 7578135980@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
+    $mobile = 1;
 }
+
+$hostname = "db686893124.db.1and1.com";
+$database = "db686893124";
+$dbUsername = "dbo686893124";
+$dbPassword = "*****";
+
+$conn = mysqli_connect($hostname, $dbUsername, $dbPassword, $database) or die ("Error connecting to database.");
+
+$sql = "INSERT INTO emergency_log VALUES ('" . $_SESSION["username"] . "', " . time() . ", '" . $_GET["e_type"] . "', 'false', " . $radio . ", " . $tv . ", " . $mobile . ", " . $email . ")";
+
+mysqli_query($conn, $sql);
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
