@@ -1,4 +1,24 @@
 <?php
+
+function clean($data) {
+    return htmlspecialchars(stripslashes(trim($data)));
+}
+
+$hostname = "db686893124.db.1and1.com";
+$database = "db686893124";
+$dbUsername = "dbo686893124";
+$dbPassword = "*****";
+
+$conn = mysqli_connect($hostname, $dbUsername, $dbPassword, $database) or die ("Error connecting to database.");
+
+$sql = "INSERT INTO emergency_log (alert_type, email, emergency, mobile, radio, timestamp, tv, username) VALUES ('test','email'
+ ".clean($_POST["e_type"]) .", 'mobile', 'radio', <timestamp>, 'tv', 'username');";
+
+$result = mysqli_query($conn, $sql);
+$resultCheck = mysqli_num_rows($result);
+
+mysqli_close($conn);
+
 if (isset($_GET['email'])) {
     $header = null;
     $msg = null;
@@ -19,8 +39,11 @@ if (isset($_GET['email'])) {
     }
 
     $msg .= " This is a test message.";
-    mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
+    //mail("jeremy21@hawaii.edu, isio@hawaii.edu, ducey@hawaii.edu", $header, $msg);
+
 }
+
+
 
 if (isset($_GET['mobile'])) {
     $header = 'TEST';

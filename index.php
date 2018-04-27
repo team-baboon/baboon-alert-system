@@ -22,6 +22,9 @@ if (isset($_POST["login"])) {
 function clean($data) {
     return htmlspecialchars(stripslashes(trim($data)));
 }
+
+mysqli_close($conn);
+
 ?>
 
 <!DOCTYPE html>
