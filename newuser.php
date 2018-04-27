@@ -51,11 +51,8 @@ function clean($data) {
         echo '<div class="alert alert-danger">Password and confirm password do not match.</div>';
     }
     ?>
-  <label for="username" class="sr-only">Username</label>
   <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
-  <label for="password" class="sr-only">Password</label>
   <input type="password" name="password" class="form-control" placeholder="Password" required>
-  <label for="password2" class="sr-only">Password</label>
   <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required>
   <button name="register" class="btn btn-lg btn-outline-primary btn-block" type="submit">Create User</button>
   <p class="mt-5 mb-3 text-muted"><a href="index.php">Return to Login</a></p>
