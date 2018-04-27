@@ -11,8 +11,8 @@ $dbPassword = "*****";
 
 $conn = mysqli_connect($hostname, $dbUsername, $dbPassword, $database) or die ("Error connecting to database.");
 
-$sql = "INSERT INTO emergency_log (alert_type, email, emergency, mobile, radio, timestamp, tv, username) VALUES ('test','email'
- ".clean($_POST["e_type"]) .", 'mobile', 'radio', <timestamp>, 'tv', 'username');";
+$sql = "INSERT INTO emergency_log (alert_type, email, emergency, mobile, radio, tv, username) VALUES ('test',1
+ ".clean($_POST["e_type"]) .", 1, 1, 1, 'username');";
 
 $result = mysqli_query($conn, $sql);
 $resultCheck = mysqli_num_rows($result);
