@@ -6,6 +6,33 @@ $tv = 0;
 $mobile = 0;
 $email = 0;
 
+if (isset($_GET['radio'])) {
+    $radio = 1;
+}
+
+if (isset($_GET['television'])) {
+    $tv = 1;
+}
+
+if (isset($_GET['mobile'])) {
+    $header = 'FALSE ALARM';
+    $msg = null;
+    $e_type = $_GET["e_type"];
+
+    if ($e_type === 'amber_alert') {
+        $msg = "There is no AMBER Alert.";
+    } elseif ($e_type === 'high_surf') {
+        $msg = "There is no high surf advisory.";
+    } elseif ($e_type === 'missile') {
+        $msg = "There is no missile threat.";
+    } elseif ($e_type === 'tsunami') {
+        $msg = "There is no tsunami inbound to Hawai'i.";
+    }
+
+    mail("8083139154@tmomail.net, 8089276781@vtext.com, 7578135980@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
+    $mobile = 1;
+}
+
 if (isset($_GET['email'])) {
     $header = null;
     $msg = null;
@@ -30,25 +57,6 @@ if (isset($_GET['email'])) {
     $email = 1;
 }
 
-if (isset($_GET['mobile'])) {
-    $header = 'FALSE ALARM';
-    $msg = null;
-    $e_type = $_GET["e_type"];
-
-    if ($e_type === 'amber_alert') {
-        $msg = "There is no AMBER Alert.";
-    } elseif ($e_type === 'high_surf') {
-        $msg = "There is no high surf advisory.";
-    } elseif ($e_type === 'missile') {
-        $msg = "There is no missile threat.";
-    } elseif ($e_type === 'tsunami') {
-        $msg = "There is no tsunami inbound to Hawai'i.";
-    }
-
-    mail("8083139154@tmomail.net, 8089276781@vtext.com, 7578135980@tmomail.net", $header, $msg, "From: admin@bamboocalc.com");
-    $mobile = 1;
-}
-
 $hostname = "db686893124.db.1and1.com";
 $database = "db686893124";
 $dbUsername = "dbo686893124";
@@ -56,7 +64,7 @@ $dbPassword = "*****";
 
 $conn = mysqli_connect($hostname, $dbUsername, $dbPassword, $database) or die ("Error connecting to database.");
 
-$sql = "INSERT INTO emergency_log VALUES ('" . $_SESSION["username"] . "', " . time() . ", '" . $_GET["e_type"] . "', 'false', " . $radio . ", " . $tv . ", " . $mobile . ", " . $email . ")";
+$sql = "INSERT INTO emergency_log (username, emergency, alert_type, radio, tv, mobile, email) VALUES ('" . $_SESSION["username"] . "', '" . $_GET["e_type"] . "', 'false', " . $radio . ", " . $tv . ", " . $mobile . ", " . $email . ")";
 
 mysqli_query($conn, $sql);
 
