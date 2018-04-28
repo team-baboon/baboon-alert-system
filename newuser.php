@@ -19,7 +19,6 @@ if (isset($_POST["register"])) {
 
         if ($result) {
             echo "<script type='text/javascript'>alert('New user created.');</script>";
-            header("Location:index.php");
         } else {
             $registerError = true;
         }
